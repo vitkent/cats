@@ -1,9 +1,26 @@
 /* 320 + */
 .b-title {
-    display: inline-block;
-    font-size: 30px;
+    display: block;
     line-height: normal;
     letter-spacing: normal;
-    color: @cl-font-main;
-    margin: 0 30px 0 0;
+    color: @cl-black;
+    margin: 0;
+
+    &--h1 {
+        .exoThin();
+        font-size: 36px;
+        line-height: 44px;
+        color: @cl-white;
+        margin: 0 0 24px;
+        text-align: center;
+        z-index: 15;
+        position: relative;
+    }
+
+    &--h2 {
+        .trebuchetBold();
+        font-size: 48px;
+        line-height: 56px;
+        transition: color @animation-time ease;
+    }
 }

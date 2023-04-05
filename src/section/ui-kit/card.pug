@@ -1,0 +1,28 @@
+mixin card(data)
+    include images.pug
+    include title.pug
+
+    +b.card
+        +e('button').btn
+            +e.text-wrap
+                +e('span').note !{data.note}
+                +title({
+                    type: 'h2',
+                    title: data.title
+                }).--h2
+                +e('span').taste !{data.taste}
+                +e('ul').list
+                    each item in data.items
+                        +e('li').item !{item.text}
+            +images([
+                {
+                    srcset: data.imgWebp,
+                    type: 'image/webp',
+                }
+            ], true, data.img, '320', '265')
+            +e.circle
+                +e('span') !{data.weight}
+                |кг
+        +e('p').text !{data.text}
+        +e('p').text.--selected !{data.textSelected}
+        +e('p').text.--disabled !{data.textDisabled}

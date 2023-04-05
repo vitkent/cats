@@ -1,0 +1,24 @@
+mixin cards(data)
+    include ui-kit/title.pug
+    include ui-kit/card.pug
+
+    +b('section').cards
+        .b-container
+            +title({
+                type: 'h1',
+                title: data.title
+            }).--h1
+            +e.wrap
+                each card in data.cards
+                    +card({
+                        note: card.note,
+                        title: card.title,
+                        taste: card.taste,
+                        weight: card.weight,
+                        img: card.img,
+                        imgWebp: card.imgWebp,
+                        items: card.items,
+                        text: card.text,
+                        textSelected: card.textSelected,
+                        textDisabled: card.textDisabled
+                    })

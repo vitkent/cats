@@ -12,5 +12,70 @@ block head
 
 //- Выводим content
 block content
+    include section/cards.pug
 
-    | Главная страница MAIN Page @$#%^!$^#)12345678
+    +cards({
+        title: 'Ты&nbsp;сегодня покормил кота?',
+        cards: [
+            {
+                note: 'Сказочное заморское яство',
+                title: 'Нямушка',
+                taste: 'с&nbsp;фуа-гра',
+                weight: '0,5',
+                text: 'Чего сидишь? Порадуй котэ, <button class="b-card__text-btn"><span>купи</span>.</button>',
+                textSelected: 'Печень утки разварная с&nbsp;артишоками.',
+                textDisabled: 'Печалька, с&nbsp;фуа-гра закончился.',
+                img: '/images/content/cards/cat.png',
+                imgWebp: '/images/content/cards/cat.webp',
+                items: [
+                    {
+                        text: '<span>10</span> порций'
+                    },
+                    {
+                        text: 'мышь в&nbsp;подарок'
+                    }
+                ]
+            },
+            {
+                note: 'Сказочное заморское яство',
+                title: 'Нямушка',
+                taste: 'с&nbsp;рыбой',
+                weight: '2',
+                text: 'Чего сидишь? Порадуй котэ, <button class="b-card__text-btn"><span>купи</span>.</button>',
+                textSelected: 'Головы щучьи с&nbsp;чесноком да&nbsp;свежайшая сёмгушка.',
+                textDisabled: 'Печалька, с&nbsp;рыбой закончился.',
+                img: '/images/content/cards/cat.png',
+                imgWebp: '/images/content/cards/cat.webp',
+                items: [
+                    {
+                        text: '<span>40</span> порций'
+                    },
+                    {
+                        text: '<span>2</span> мыши в&nbsp;подарок'
+                    }
+                ]
+            },
+            {
+                note: 'Сказочное заморское яство',
+                title: 'Нямушка',
+                taste: 'с&nbsp;курой',
+                weight: '5',
+                text: 'Чего сидишь? Порадуй котэ, <button class="b-card__text-btn"><span>купи</span>.</button>',
+                textSelected: 'Филе из&nbsp;цыплят с&nbsp;трюфелями в&nbsp;бульоне.',
+                textDisabled: 'Печалька, с&nbsp;курой закончился.',
+                img: '/images/content/cards/cat.png',
+                imgWebp: '/images/content/cards/cat.webp',
+                items: [
+                    {
+                        text: '<span>100</span> порций'
+                    },
+                    {
+                        text: '<span>5</span> мышей в&nbsp;подарок'
+                    },
+                    {
+                        text: 'заказчик доволен'
+                    }
+                ]
+            },
+        ]
+    })

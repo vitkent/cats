@@ -1,0 +1,10 @@
+mixin images(obj, source, adress, width, height)
+    //- добавлять loading="lazy" в случае необходимости!
+    +b.images
+        if source
+            +e('picture').picture
+                each item in obj
+                    +e('source').image(srcset=item.srcset, media=item.media, type=item.type)
+                +e('img').image&attributes( attributes )(src=adress, alt="", width=width, height=height)
+        else
+            +e('img').image&attributes( attributes )(src=obj.src, alt="", width=width, height=height)

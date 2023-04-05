@@ -1,0 +1,225 @@
+.b-card {
+    margin: 0 0 40px;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -30px;
+        left: -32px;
+        width: 60px;
+        height: 60px;
+        background-image: url("/images/content/cards/bg.jpg");
+        transform: rotate(45deg);
+        z-index: 10;
+    }
+
+    &__btn {
+        background-color: @cl-gray2;
+        position: relative;
+        margin: 0 0 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 4px solid @cl-blue;
+        border-radius: 12px;
+        clip-path: polygon(41px 0, 100% 0, 100% 100%, 0 100%, 0 41px);
+        padding: 0;
+        text-align: left;
+        transition: border-color @animation-time ease;
+        overflow: hidden;
+        flex-grow: 1;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -102px;
+            left: -72px;
+            width: 124px;
+            height: 124px;
+            border: 4px solid @cl-blue;
+            transform: rotate(45deg);
+            transition: border-color @animation-time ease;
+            background-image: url("/images/content/cards/bg.jpg");
+            z-index: 10;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: @cl-gray3;
+            opacity: 0;
+            transition: opacity @animation-time ease;
+        }
+    }
+
+    &__text-wrap {
+        padding: 17px 10px 0 38px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 17px;
+        width: 100%;
+    }
+
+    &__circle {
+        background-color: @cl-blue;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: @cl-white;
+        font-size: 21px;
+        line-height: 14px;
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        transition: background-color @animation-time ease;
+        z-index: 5;
+
+        span {
+            font-size: 42px;
+            line-height: 43px;
+        }
+    }
+
+    &__note {
+        font-size: 16px;
+        line-height: 19px;
+        color: @cl-gray;
+        margin: 0 0 5px;
+    }
+
+    &__taste {
+        .trebuchetBold();
+        font-size: 24px;
+        line-height: 28px;
+        margin:  0 0 15px;
+        transition: color @animation-time ease;
+    }
+
+    &__list {
+        padding: 0;
+    }
+
+    &__item {
+        color: @cl-gray;
+        transition: color @animation-time ease;
+
+        span {
+            .trebuchetBold();
+        }
+    }
+
+    &__text {
+        margin: 0;
+        font-size: 13px;
+        line-height: 15px;
+        color: @cl-white;
+        text-align: center;
+
+        &--selected {
+            color: @cl-red;
+            display: none;
+        }
+
+        &--disabled {
+            color: @cl-yellow;
+            display: none;
+        }
+    }
+
+    &__text-btn {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        color: @cl-blue;
+        transition: opacity @animation-time ease;
+        opacity: 1;
+
+        span {
+            border-bottom: 1px dotted @cl-blue;
+        }
+
+        .no-touchevents &:hover,
+        .no-touchevents &:active,
+        .touchevents &:active {
+            opacity: 0.7;
+        }
+    }
+
+    &:last-child {
+        margin: 0;
+    }
+
+    &.selected &{
+        &__btn {
+            border-color: @cl-red;
+
+            &::before {
+                border-color: @cl-red;
+            }
+        }
+
+        &__circle {
+            background-color: @cl-red;
+        }
+
+        &__text {
+            display: none;
+
+            &--selected {
+                display: block;
+            }
+        }
+    }
+
+    &.disabled {
+        .b-title--h2 {
+            color: @cl-gray3;
+        }
+    }
+
+    &.disabled &{
+        &__btn {
+            border-color: @cl-gray3;
+            pointer-events: none;
+
+            &::before {
+                border-color: @cl-gray3;
+            }
+
+            &::after {
+                opacity: 0.5;
+            }
+        }
+
+        &__circle {
+            background-color: @cl-gray3;
+        }
+
+        &__note,
+        &__item,
+        &__taste {
+            color: @cl-gray3;
+        }
+
+        &__text {
+            display: none;
+
+            &--disabled {
+                display: block;
+            }
+        }
+    }
+}
